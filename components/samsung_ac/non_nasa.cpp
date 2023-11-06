@@ -9,7 +9,7 @@ static const char *TAG = "samsung_non_nasa";
 
 namespace esphome
 {
-    namespace samsung_ac
+    namespace samsung_hp
     {
         NonNasaDataPacket packet;
 
@@ -306,5 +306,5 @@ namespace esphome
             target->set_mode(packet.src, nonnasa_mode_to_mode(packet.mode));
             target->set_fanmode(packet.src, nonnasa_fanspeed_to_fanmode(packet.fanspeed));
         }
-    } // namespace samsung_ac
+    } // namespace samsung_hp
 } // namespace esphome

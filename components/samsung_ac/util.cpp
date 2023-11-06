@@ -2,7 +2,7 @@
 
 namespace esphome
 {
-    namespace samsung_ac
+    namespace samsung_hp
     {
         std::string int_to_hex(int number)
         {
@@ -40,5 +40,5 @@ namespace esphome
         {
             std::cout << std::bitset<8>(value) << std::endl;
         }
-    } // namespace samsung_ac
+    } // namespace samsung_hp
 } // namespace esphome

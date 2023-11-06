@@ -8,7 +8,7 @@ static const char *TAG = "samsung_nasa";
 
 namespace esphome
 {
-    namespace samsung_ac
+    namespace samsung_hp
     {
         int variable_to_signed(int value)
         {
@@ -381,17 +381,13 @@ namespace esphome
             switch (value)
             {
             case 0:
-                return Mode::Auto;
+                return Mode::Eco;
             case 1:
-                return Mode::Cool;
+                return Mode::Standard;
             case 2:
-                return Mode::Dry;
+                return Mode::Power;
             case 3:
-                return Mode::Fan;
-            case 4:
-                return Mode::Heat;
-                // case 21:  Cool Storage
-                // case 24: Hot Water
+                return Mode::Force;
             default:
                 return Mode::Unknown;
             }
@@ -937,5 +933,5 @@ namespace esphome
             }
         }
 
-    } // namespace samsung_ac
+    } // namespace samsung_hp
 } // namespace esphome

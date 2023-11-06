@@ -6,7 +6,7 @@
 
 namespace esphome
 {
-    namespace samsung_ac
+    namespace samsung_hp
     {
         enum class AddressClass : uint8_t
         {
@@ -72,7 +72,7 @@ namespace esphome
         {
             Undefiend = 0,
             ENUM_in_operation_power = 0x4065,
-            ENUM_in_operation_mode = 0x4001,
+            ENUM_in_operation_mode = 0x4066,
             ENUM_in_fan_mode = 0x4006, // Did not exists in xml...only in Remocon.dll code
             ENUM_in_fan_mode_real = 0x4007,
             ENUM_in_state_humidity_percent = 0x4038,
@@ -170,5 +170,5 @@ namespace esphome
             std::vector<uint8_t> get_fanmode_message(const std::string &address, FanMode value) override;
         };
 
-    } // namespace samsung_ac
+    } // namespace samsung_hp
 } // namespace esphome

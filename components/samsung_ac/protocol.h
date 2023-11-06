@@ -5,7 +5,7 @@
 
 namespace esphome
 {
-    namespace samsung_ac
+    namespace samsung_hp
     {
         enum class Mode
         {
@@ -55,5 +55,5 @@ namespace esphome
 
         bool is_nasa_address(const std::string &address);
 
-    } // namespace samsung_ac
+    } // namespace samsung_hp
 } // namespace esphome

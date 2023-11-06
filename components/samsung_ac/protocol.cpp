@@ -6,7 +6,7 @@
 
 namespace esphome
 {
-    namespace samsung_ac
+    namespace samsung_hp
     {
         void process_message(std::vector<uint8_t> &data, MessageTarget *target)
         {
@@ -21,7 +21,7 @@ namespace esphome
                 return;
             }
 
-            ESP_LOGW("samsung_ac", "Unknown message type %s", bytes_to_hex(data).c_str());
+            ESP_LOGW("samsung_hp", "Unknown message type %s", bytes_to_hex(data).c_str());
         }
 
         bool is_nasa_address(const std::string &address)
@@ -39,5 +39,5 @@ namespace esphome
 
             return nasaProtocol;
         }
-    } // namespace samsung_ac
+    } // namespace samsung_hp
 } // namespace esphome
