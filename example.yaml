@@ -1,0 +1,38 @@
+esp8266:
+  board: nodemcuv2
+
+web_server:
+  port: 80
+
+uart:
+  tx_pin: TX
+  rx_pin: RX
+  baud_rate: 9600
+  parity: EVEN
+
+external_components:
+  - source: github://lanwin/esphome_samsung_ac@main
+    components: [samsung_ac]
+
+samsung_ac:
+  devices:
+    - address: "20.00.00" # for non NASA it sould be like "c4"
+      # Each property below are optional - choose what you want to use.
+
+      # You could use the ESPHome/Homeassist climate control
+      climate:
+        name: "My Room"
+
+      # And/or use seperate controls/sensors
+      room_temperature:
+        name: Test1_temp
+      target_temperature:
+        name: Test1_target
+      power:
+        name: Test1_power
+      mode:
+        name: Test1_mode
+
+      # Only supported on NASA devices
+      room_humidity:
+        name: Test1_humidity
