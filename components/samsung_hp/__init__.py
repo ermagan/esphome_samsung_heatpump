@@ -12,7 +12,7 @@ from esphome.const import (
     UNIT_PERCENT,
 )
 
-CODEOWNERS = ["ermagan", "joloman2"]
+CODEOWNERS = ["matthias882", "lanwin"]
 DEPENDENCIES = ["uart"]
 AUTO_LOAD = ["sensor", "switch", "select", "number", "climate"]
 MULTI_CONF = False
