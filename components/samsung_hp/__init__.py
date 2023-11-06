@@ -12,7 +12,7 @@ from esphome.const import (
     UNIT_PERCENT,
 )
 
-CODEOWNERS = ["matthias882", "lanwin"]
+CODEOWNERS = ["ermagan", "joloman2"]
 DEPENDENCIES = ["uart"]
 AUTO_LOAD = ["sensor", "switch", "select", "number", "climate"]
 MULTI_CONF = False
@@ -130,7 +130,7 @@ async def to_code(config):
 
         if CONF_DEVICE_MODE in device:
             conf = device[CONF_DEVICE_MODE]
-            values = ["Eco", "Standard", "Power", "Force"]
+            values = ["Auto", "Cool", "Dry", "Fan", "Heat"]
             sel = await select.new_select(conf, options=values)
             await select.register_select(sel, conf, options=values)
             cg.add(var_dev.set_mode_select(sel))
