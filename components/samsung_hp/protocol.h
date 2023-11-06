@@ -9,12 +9,11 @@ namespace esphome
     {
         enum class Mode
         {
-            Unknown = -1,
-            Auto = 0,
-            Cool = 1,
-            Dry = 2,
-            Fan = 3,
-            Heat = 4,
+            Unknown = 0,
+            Eco = 0,
+            Standard = 1,
+            Power = 2,
+            Force = 3,
         };
 
         enum class FanMode
