@@ -28,7 +28,7 @@ Samsung_HP_Switch = samsung_hp.class_("Samsung_HP_Switch", switch.Switch)
 Samsung_HP_Mode_Select = samsung_hp.class_(
     "Samsung_HP_Mode_Select", select.Select)
 Samsung_HP_Number = samsung_hp.class_("Samsung_HP_Number", number.Number)
-Samsung_HP_Climate = samsung_hpc.class_("Samsung_HP_Climate", climate.Climate)
+Samsung_HP_Climate = samsung_hp.class_("Samsung_HP_Climate", climate.Climate)
 
 CONF_DATALINE_DEBUG = "dataline_debug"
 
