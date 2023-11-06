@@ -12,27 +12,27 @@ from esphome.const import (
     UNIT_PERCENT,
 )
 
-CODEOWNERS = ["ermagan", "joloman2"]
+CODEOWNERS = ["matthias882", "lanwin"]
 DEPENDENCIES = ["uart"]
 AUTO_LOAD = ["sensor", "switch", "select", "number", "climate"]
 MULTI_CONF = False
 
-CONF_SAMSUNG_HP_ID = "samsung_hp_id"
+CONF_SAMSUNG_AC_ID = "samsung_ac_id"
 
-samsung_hp = cg.esphome_ns.namespace("samsung_hp")
-Samsung_HP = samsung_hp.class_(
-    "Samsung_HP", cg.PollingComponent, uart.UARTDevice
+samsung_ac = cg.esphome_ns.namespace("samsung_ac")
+Samsung_AC = samsung_ac.class_(
+    "Samsung_AC", cg.PollingComponent, uart.UARTDevice
 )
-Samsung_HP_Device = samsung_hp.class_("Samsung_HP_Device")
-Samsung_HP_Switch = samsung_hp.class_("Samsung_HP_Switch", switch.Switch)
-Samsung_HP_Mode_Select = samsung_hp.class_(
-    "Samsung_HP_Mode_Select", select.Select)
-Samsung_HP_Number = samsung_hp.class_("Samsung_HP_Number", number.Number)
-Samsung_HP_Climate = samsung_hp.class_("Samsung_HP_Climate", climate.Climate)
+Samsung_AC_Device = samsung_ac.class_("Samsung_AC_Device")
+Samsung_AC_Switch = samsung_ac.class_("Samsung_AC_Switch", switch.Switch)
+Samsung_AC_Mode_Select = samsung_ac.class_(
+    "Samsung_AC_Mode_Select", select.Select)
+Samsung_AC_Number = samsung_ac.class_("Samsung_AC_Number", number.Number)
+Samsung_AC_Climate = samsung_ac.class_("Samsung_AC_Climate", climate.Climate)
 
 CONF_DATALINE_DEBUG = "dataline_debug"
 
-CONF_DEVICE_ID = "samsung_hp_device_id"
+CONF_DEVICE_ID = "samsung_ac_device_id"
 CONF_DEVICE_ADDRESS = "address"
 CONF_DEVICE_ROOM_TEMPERATURE = "room_temperature"
 CONF_DEVICE_ROOM_HUMIDITY = "room_humidity"
@@ -44,23 +44,23 @@ CONF_DEVICE_CLIMATE = "climate"
 # not sure why select.select_schema did not work yet
 SELECT_MODE_SCHEMA = (
     select.SELECT_SCHEMA.extend(
-        {cv.GenerateID(): cv.declare_id(Samsung_HP_Mode_Select)})
+        {cv.GenerateID(): cv.declare_id(Samsung_AC_Mode_Select)})
 )
 
 NUMBER_SCHEMA = (
     number.NUMBER_SCHEMA.extend(
-        {cv.GenerateID(): cv.declare_id(Samsung_HP_Number)})
+        {cv.GenerateID(): cv.declare_id(Samsung_AC_Number)})
 )
 
 CLIMATE_SCHEMA = (
     climate.CLIMATE_SCHEMA.extend(
-        {cv.GenerateID(): cv.declare_id(Samsung_HP_Climate)})
+        {cv.GenerateID(): cv.declare_id(Samsung_AC_Climate)})
 )
 
 DEVICE_SCHEMA = (
     cv.Schema(
         {
-            cv.GenerateID(CONF_DEVICE_ID): cv.declare_id(Samsung_HP_Device),
+            cv.GenerateID(CONF_DEVICE_ID): cv.declare_id(Samsung_AC_Device),
             cv.Required(CONF_DEVICE_ADDRESS): cv.string,
             cv.Optional(CONF_DEVICE_ROOM_TEMPERATURE): sensor.sensor_schema(
                 unit_of_measurement=UNIT_CELSIUS,
@@ -75,7 +75,7 @@ DEVICE_SCHEMA = (
                 state_class=STATE_CLASS_MEASUREMENT,
             ),
             cv.Optional(CONF_DEVICE_TARGET_TEMPERATURE): NUMBER_SCHEMA,
-            cv.Optional(CONF_DEVICE_POWER): switch.switch_schema(Samsung_HP_Switch),
+            cv.Optional(CONF_DEVICE_POWER): switch.switch_schema(Samsung_AC_Switch),
             cv.Optional(CONF_DEVICE_MODE): SELECT_MODE_SCHEMA,
             cv.Optional(CONF_DEVICE_CLIMATE): CLIMATE_SCHEMA,
         }
@@ -87,7 +87,7 @@ CONF_DEVICES = "devices"
 CONFIG_SCHEMA = (
     cv.Schema(
         {
-            cv.GenerateID(): cv.declare_id(Samsung_HP),
+            cv.GenerateID(): cv.declare_id(Samsung_AC),
             cv.Optional(CONF_DATALINE_DEBUG, default=False): cv.boolean,
             cv.Required(CONF_DEVICES): cv.ensure_list(DEVICE_SCHEMA),
         }
